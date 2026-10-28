@@ -1,0 +1,32 @@
+name: Dishan Majumder
+role_title: "Naval Architect & Marine Engineer"
+eyebrow: "Ph.D. Applicant · Mechanical Engineering"
+headline: "Naval Architect & Marine Engineer with hands-on experience in ship design, stability analysis and engineering education — now pursuing research in **composite materials**, **structural analysis** and **fatigue & crack behaviour**."
+seo_description: "Portfolio of Dishan Majumder — Naval Architecture & Marine Engineering graduate (MIST), former Civil Instructor at Bangladesh Naval Academy, and Ph.D. applicant in Mechanical Engineering with interests in composites, structural analysis and fatigue."
+photo: /assets/img/profile.jpg
+avatar: /assets/img/avatar.jpg
+status: "Open to Ph.D. opportunities"
+cv: /assets/files/Dishan_Majumder_CV.pdf
+email: dishan60@gmail.com
+phone: "+8801815554912"
+phone_display: "+880 1815-554912"
+contact_heading: "Let's connect"
+contact_text: "Open to Ph.D. opportunities, research collaborations and engineering roles."
+facts:
+  - label: Current role
+    value: "Executive, DECO Limited"
+  - label: Previously
+    value: "Civil Instructor, Bangladesh Naval Academy"
+  - label: Degree
+    value: "B.Sc. Naval Architecture & Marine Engineering, MIST"
+  - label: Based in
+    value: Bangladesh
+stats:
+  - number: "4"
+    label: courses conducted at Bangladesh Naval Academy
+  - number: "2"
+    label: academy labs managed
+  - number: "2"
+    label: international conferences attended
+  - number: "900+"
+    label: participants at events co-organized

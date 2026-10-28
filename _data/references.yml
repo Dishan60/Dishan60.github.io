@@ -1,0 +1,9 @@
+people:
+  - name: "Dr. S M Ikhtiar Mahmud"
+    relation: Thesis Supervisor
+    details: "Assistant Professor, Department of Naval Architecture & Marine Engineering, Military Institute of Science and Technology (MIST)"
+    email: ikhtiar@name.mist.ac.bd
+  - name: "Md. Mezbah Uddin"
+    relation: Course Teacher
+    details: "Assistant Professor, Department of Naval Architecture & Marine Engineering, Military Institute of Science and Technology (MIST)"
+    email: mezbah@name.mist.ac.bd

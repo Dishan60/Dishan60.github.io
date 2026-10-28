@@ -1,0 +1,12 @@
+# Jekyll build output
+_site/
+.jekyll-cache/
+.sass-cache/
+vendor/
+
+# macOS
+.DS_Store
+
+# Original source files (kept locally; the site uses the optimized copies in assets/)
+CV.docx
+profile_pic.png

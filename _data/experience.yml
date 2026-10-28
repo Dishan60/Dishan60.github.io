@@ -1,0 +1,39 @@
+roles:
+  - title: Executive
+    organization: DECO Limited
+    dates: "Apr 2025 – Present"
+    current: true
+    tags_heading: ""
+    tags: []
+    bullets_heading: ""
+    bullets:
+      - "Handle technical sales for LPG–SNG system solutions, covering client consultation, site assessment and requirement analysis."
+      - "Prepare technical proposals, cost estimates and presentations aligned with client operational needs and safety standards."
+      - "Coordinate with engineering, operations and supply teams to deliver end-to-end energy solutions."
+      - "Build and maintain client relationships, support negotiations and contribute to business development and market expansion."
+  - title: Civil Instructor
+    organization: "Bangladesh Naval Academy (BNA), Bangladesh"
+    dates: "Jun 2023 – Mar 2025"
+    current: false
+    tags_heading: Courses conducted
+    tags:
+      - "Hydrostatics & Stability"
+      - "Introduction to Naval Architecture & Marine Engineering"
+      - Mechanical Drawing
+      - Basic Ship Design-I
+    bullets_heading: Additional responsibilities
+    bullets:
+      - "In charge of the **Ship Design Studio** lab and the **Engineering Model Room** lab."
+      - "Conducted guided visits on engineering equipment in the Engineering Model Room."
+  - title: Undergraduate Intern
+    organization: "Khulna Shipyard, Khulna, Bangladesh"
+    dates: "Mar 2021 – Apr 2021"
+    current: false
+    tags_heading: ""
+    tags: []
+    bullets_heading: ""
+    bullets:
+      - "Drafting and weight calculations for ship structures."
+      - "Stability and resistance calculations, including stability simulations."
+      - "Engine foundation design and structural design plans for ship components."
+      - "Collaborated within a professional shipbuilding environment."

@@ -1,0 +1,376 @@
+---
+# This page is generated from the files in _data/. Edit content there (or through Pages CMS), not here.
+---
+{%- assign p = site.data.profile -%}
+{%- assign interests = site.data.interests -%}
+{%- assign roles = site.data.experience.roles -%}
+{%- assign degrees = site.data.education.degrees -%}
+{%- assign research = site.data.research -%}
+{%- assign skills = site.data.skills.groups -%}
+{%- assign lead = site.data.leadership -%}
+{%- assign refs = site.data.references.people -%}
+{%- capture page_title -%}{{ p.name }}{% if p.role_title and p.role_title != "" %} — {{ p.role_title }}{% endif %}{%- endcapture -%}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title }}</title>
+  <meta name="description" content="{{ p.seo_description | escape }}">
+  <link rel="icon" href="{{ p.avatar | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ p.avatar | relative_url }}">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:description" content="{{ p.seo_description | escape }}">
+  <meta property="og:image" content="{{ p.photo | absolute_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Back to top">
+        <img class="avatar" src="{{ p.avatar | relative_url }}" alt="" width="36" height="36">
+        <span class="brand-name">{{ p.name }}</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-links" class="nav-links" aria-label="Primary">
+        {% if interests.items.size > 0 %}<a href="#about">About</a>{% endif %}
+        {% if roles.size > 0 %}<a href="#experience">Experience</a>{% endif %}
+        {% if degrees.size > 0 %}<a href="#education">Education</a>{% endif %}
+        <a href="#research">Research</a>
+        {% if skills.size > 0 %}<a href="#skills">Skills</a>{% endif %}
+        {% if lead.positions.size > 0 or lead.activities.size > 0 %}<a href="#leadership">Leadership</a>{% endif %}
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          {% if p.eyebrow and p.eyebrow != "" %}<p class="eyebrow">{{ p.eyebrow }}</p>{% endif %}
+          <h1>{{ p.name }}</h1>
+          <p class="lead">{{ p.headline | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:{{ p.email }}">
+              {% include icons/mail.svg %}
+              Email me
+            </a>
+            {% if p.cv and p.cv != "" %}
+            <a class="btn btn-ghost" href="{{ p.cv | relative_url }}" download target="_blank" rel="noopener">
+              {% include icons/download.svg %}
+              Download CV
+            </a>
+            {% endif %}
+          </div>
+
+          {% if p.facts.size > 0 %}
+          <dl class="facts" aria-label="At a glance">
+            {% for f in p.facts %}<div><dt>{{ f.label }}</dt><dd>{{ f.value }}</dd></div>
+            {% endfor %}
+          </dl>
+          {% endif %}
+        </div>
+
+        <figure class="hero-photo">
+          <img src="{{ p.photo | relative_url }}" alt="Portrait of {{ p.name | escape }}" width="720" height="900" fetchpriority="high">
+          {% if p.status and p.status != "" %}
+          <figcaption class="photo-caption">
+            <span class="status"><span class="dot" aria-hidden="true"></span>{{ p.status }}</span>
+          </figcaption>
+          {% endif %}
+        </figure>
+      </div>
+
+      {% if p.stats.size > 0 %}
+      <div class="container">
+        <div class="stats" aria-label="Highlights">
+          {% for s in p.stats %}<div class="stat"><span class="stat-num">{{ s.number }}</span><span class="stat-label">{{ s.label }}</span></div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </section>
+
+    {% if interests.items.size > 0 %}
+    <!-- About / Research interests -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">About</p>
+          <h2>Research interests</h2>
+          {% if interests.intro and interests.intro != "" %}<p class="section-intro">{{ interests.intro }}</p>{% endif %}
+        </div>
+        <ul class="interest-grid">
+          {% for i in interests.items %}
+          <li class="interest">
+            {% assign icon = i.icon | default: "layers" %}{% include icons/{{ icon }}.svg %}
+            <span>{{ i.name }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if roles.size > 0 %}
+    <!-- Experience -->
+    <section class="section section-alt" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Career</p>
+          <h2>Professional experience</h2>
+        </div>
+
+        <ol class="timeline">
+          {% for r in roles %}
+          <li class="role">
+            <div class="role-meta">
+              <span class="role-date">{{ r.dates }}</span>
+              {% if r.current %}<span class="badge badge-current">Current</span>{% endif %}
+            </div>
+            <div class="role-body">
+              <h3>{{ r.title }}</h3>
+              <p class="role-org">{{ r.organization }}</p>
+              {% if r.tags.size > 0 %}
+              {% if r.tags_heading and r.tags_heading != "" %}<p class="role-sub">{{ r.tags_heading }}</p>{% endif %}
+              <ul class="tags">
+                {% for t in r.tags %}<li>{{ t }}</li>{% endfor %}
+              </ul>
+              {% endif %}
+              {% if r.bullets.size > 0 %}
+              {% if r.bullets_heading and r.bullets_heading != "" %}<p class="role-sub">{{ r.bullets_heading }}</p>{% endif %}
+              <ul class="bullets">
+                {% for b in r.bullets %}<li>{{ b | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if degrees.size > 0 %}
+    <!-- Education -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Education</p>
+          <h2>Academic background</h2>
+        </div>
+
+        <div class="edu-list">
+          {% for d in degrees %}
+          <article class="card edu-card">
+            <div class="edu-top">
+              <div>
+                <h3>{{ d.degree }}</h3>
+                <p class="role-org">{{ d.institution }}</p>
+                {% if d.details and d.details != "" %}<p class="edu-details">{{ d.details }}</p>{% endif %}
+              </div>
+              <span class="role-date">{{ d.dates }}</span>
+            </div>
+            {% if d.courses.size > 0 %}
+            <p class="role-sub">Relevant coursework</p>
+            <ul class="tags">
+              {% for c in d.courses %}<li>{{ c }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- Research: publications, thesis, projects, conferences -->
+    <section class="section section-alt" id="research">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Research</p>
+          <h2>Publications, thesis &amp; projects</h2>
+        </div>
+
+        {% for pub in research.publications %}
+        <article class="card publication">
+          <span class="badge">Publication{% if pub.year and pub.year != "" %} · {{ pub.year }}{% endif %}</span>
+          <h3>{{ pub.title }}</h3>
+          <p class="citation">{{ pub.citation | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+          {% if pub.link and pub.link != "" %}
+          <a class="link-arrow" href="{{ pub.link }}" target="_blank" rel="noopener">
+            {{ pub.link_text | default: pub.link }}
+            {% include icons/external.svg %}
+          </a>
+          {% endif %}
+        </article>
+        {% endfor %}
+
+        {% if research.projects.size > 0 %}
+        <div class="project-grid">
+          {% for pr in research.projects %}
+          <article class="card project">
+            <div class="project-head">
+              <span class="badge">{{ pr.type }}</span>
+              <span class="role-date">{{ pr.year }}</span>
+            </div>
+            <h3>{{ pr.title }}</h3>
+            <p>{{ pr.description }}</p>
+            {% if pr.tools.size > 0 %}
+            <ul class="tags tags-sm">
+              {% for t in pr.tools %}<li>{{ t }}</li>{% endfor %}
+            </ul>
+            {% endif %}
+            {% if pr.supervisor and pr.supervisor != "" %}<p class="supervisor">Supervisor: {{ pr.supervisor }}</p>{% endif %}
+          </article>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if research.conferences.size > 0 %}
+        <div class="card conferences">
+          <h3>Conferences attended</h3>
+          <ul class="conf-list">
+            {% for c in research.conferences %}
+            <li>
+              <span class="conf-name">{{ c.name }}</span>
+              <span class="conf-meta">{{ c.details }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+
+    {% if skills.size > 0 %}
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Toolkit</p>
+          <h2>Technical skills</h2>
+        </div>
+        <div class="skills-grid">
+          {% for g in skills %}
+          <div class="card skill-group">
+            <h3>{{ g.name }}</h3>
+            <ul class="tags">{% for s in g.items %}<li>{{ s }}</li>{% endfor %}</ul>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if lead.positions.size > 0 or lead.activities.size > 0 %}
+    <!-- Leadership & activities -->
+    <section class="section section-alt" id="leadership">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Beyond engineering</p>
+          <h2>Leadership &amp; activities</h2>
+        </div>
+
+        <div class="leader-grid">
+          {% if lead.positions.size > 0 %}
+          <div class="card">
+            <h3>Positions held</h3>
+            <ul class="bullets">
+              {% for pos in lead.positions %}<li>{{ pos | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+          {% if lead.activities.size > 0 %}
+          <div class="card">
+            <h3>Activities</h3>
+            <ul class="activity-list">
+              {% for a in lead.activities %}
+              <li>
+                <span>{{ a.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span>
+                <span class="activity-date">{{ a.dates }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if refs.size > 0 %}
+    <!-- References -->
+    <section class="section" id="references">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">References</p>
+          <h2>Academic references</h2>
+        </div>
+        <div class="ref-grid">
+          {% for r in refs %}
+          <div class="card ref">
+            <h3>{{ r.name }}</h3>
+            {% if r.relation and r.relation != "" %}<p class="ref-rel">{{ r.relation }}</p>{% endif %}
+            <p>{{ r.details }}</p>
+            {% if r.email and r.email != "" %}<a class="link-arrow" href="mailto:{{ r.email }}">{{ r.email }}</a>{% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="container contact-inner">
+        <div>
+          <h2>{{ p.contact_heading | default: "Let's connect" }}</h2>
+          {% if p.contact_text and p.contact_text != "" %}<p>{{ p.contact_text }}</p>{% endif %}
+        </div>
+        <div class="contact-links">
+          <a class="contact-item" href="mailto:{{ p.email }}">
+            {% include icons/mail.svg %}
+            {{ p.email }}
+          </a>
+          {% if p.phone and p.phone != "" %}
+          <a class="contact-item" href="tel:{{ p.phone | remove: ' ' | remove: '-' }}">
+            {% include icons/phone.svg %}
+            {{ p.phone_display | default: p.phone }}
+          </a>
+          {% endif %}
+          {% if p.cv and p.cv != "" %}
+          <a class="contact-item" href="{{ p.cv | relative_url }}" download target="_blank" rel="noopener">
+            {% include icons/download.svg %}
+            Download full CV (PDF)
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year">{{ site.time | date: "%Y" }}</span> {{ p.name }}</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="{{ '/js/main.js' | relative_url }}"></script>
+</body>
+</html>

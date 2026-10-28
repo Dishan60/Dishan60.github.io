@@ -1,0 +1,14 @@
+intro: "My background spans ship structures, hydrostatics and marine design. I'm applying to Ph.D. programmes in Mechanical Engineering to deepen my work in the following areas."
+items:
+  - name: Composite Materials
+    icon: layers
+  - name: Structural Analysis
+    icon: structure
+  - name: Thermodynamics
+    icon: thermometer
+  - name: Nanotechnology
+    icon: atom
+  - name: "Fatigue & Crack Analysis"
+    icon: crack
+  - name: Underwater Robotics
+    icon: robot

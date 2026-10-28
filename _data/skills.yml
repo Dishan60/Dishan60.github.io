@@ -1,0 +1,9 @@
+groups:
+  - name: CAD
+    items: [SolidWorks, AutoCAD, Rhinoceros]
+  - name: "Simulation & Analysis"
+    items: [Maxsurf, ANSYS, MATLAB]
+  - name: Programming
+    items: [Python, C, C++]
+  - name: Technical Writing
+    items: [LaTeX, Microsoft Word, Excel]

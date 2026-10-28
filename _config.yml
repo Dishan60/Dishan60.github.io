@@ -1,0 +1,18 @@
+# Site settings for GitHub Pages (Jekyll).
+# All page content lives in _data/ and is edited through Pages CMS (app.pagescms.org).
+title: Dishan Majumder
+lang: en
+
+# GitHub Pages fills in url/baseurl automatically. Set them only if you use a custom domain.
+# url: "https://example.com"
+# baseurl: ""
+
+markdown: kramdown
+
+exclude:
+  - README.md
+  - CV.docx
+  - profile_pic.png
+  - Gemfile
+  - Gemfile.lock
+  - vendor

@@ -1,0 +1,30 @@
+publications:
+  - title: "An alternative proposal for jetty and pontoon design in Paturia Ferry Ghat"
+    year: "2023"
+    citation: "Mahmud, S. M. I., **Majumder, D.**, & Fahim, S. H. (2023). *Proceedings of the 13th International Conference on Marine Technology (MARTEC)*. SSRN."
+    link: "https://doi.org/10.2139/ssrn.4442508"
+    link_text: "doi.org/10.2139/ssrn.4442508"
+projects:
+  - type: Undergraduate Thesis
+    year: "2021"
+    title: "An Alternative Proposal for Jetty and Pontoon Design in Paturia Ferry Ghat"
+    description: "Designed a permanent ghat-area layout able to cope with seasonal water-level change. By analysing a decade of hydro-morphological data, three subdivision lanes were planned and a specialised pontoon was designed for ferries, passenger vessels and engine boats."
+    tools:
+      - AutoCAD
+      - SolidWorks
+      - Hydro-morphological analysis
+    supervisor: "Dr. S M Ikhtiar Mahmud, MIST"
+  - type: Design Project
+    year: "2020"
+    title: "180 TEU Cargo Container Ship — Dhaka to Payra Port"
+    description: "Year-long design of a 180 TEU container vessel: GA plan, lines plan, deck plans, weight, stability and resistance calculations, and engine foundation design, producing a comprehensive plan for the vessel."
+    tools:
+      - AutoCAD
+      - Rhinoceros
+      - Maxsurf
+    supervisor: "Dr. S M Ikhtiar Mahmud, MIST"
+conferences:
+  - name: "13th International Conference on Marine Technology (MARTEC)"
+    details: "BUET · 2022"
+  - name: "2nd International Conference on Mechanical Engineering and Applied Sciences (ICMEAS)"
+    details: "MIST · 2022"

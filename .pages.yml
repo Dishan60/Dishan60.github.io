@@ -1,0 +1,386 @@
+# Pages CMS configuration: defines the editing forms at https://app.pagescms.org
+# Docs: https://pagescms.org/docs/configuration/
+
+media:
+  - name: images
+    label: Photos
+    input: assets/img
+    output: /assets/img
+    extensions: [jpg, jpeg, png, webp]
+  - name: files
+    label: Documents
+    input: assets/files
+    output: /assets/files
+    extensions: [pdf]
+
+content:
+  # ---------------------------------------------------------------- Profile
+  - name: profile
+    label: Profile & contact
+    type: file
+    path: _data/profile.yml
+    fields:
+      - name: name
+        label: Full name
+        type: string
+        required: true
+      - name: role_title
+        label: Professional title
+        type: string
+        description: Shown in the browser tab and link previews, e.g. "Naval Architect & Marine Engineer".
+      - name: eyebrow
+        label: Small label above the name
+        type: string
+        description: e.g. "Ph.D. Applicant · Mechanical Engineering". Leave empty to hide.
+      - name: headline
+        label: Intro paragraph
+        type: text
+        description: "Short summary under your name. Wrap words in **double asterisks** to make them bold."
+      - name: photo
+        label: Profile photo
+        type: image
+        description: Portrait photo (4:5 shape works best, e.g. 720 × 900 px). Keep it under 500 KB.
+        options:
+          media: images
+      - name: avatar
+        label: Small square photo
+        type: image
+        description: Used in the menu bar and browser tab. Square, about 160 × 160 px.
+        options:
+          media: images
+      - name: status
+        label: Status under the photo
+        type: string
+        description: e.g. "Open to Ph.D. opportunities". Leave empty to hide.
+      - name: cv
+        label: CV (PDF)
+        type: file
+        description: Upload a new PDF here to update both "Download CV" buttons.
+        options:
+          media: files
+      - name: email
+        label: Email
+        type: string
+        required: true
+      - name: phone
+        label: Phone (for the call link)
+        type: string
+        description: International format without spaces, e.g. +8801815554912. Leave empty to hide the phone number.
+      - name: phone_display
+        label: Phone (as displayed)
+        type: string
+        description: How the number looks on the page, e.g. +880 1815-554912.
+      - name: facts
+        label: At a glance
+        type: object
+        description: Short facts shown under the buttons at the top of the page.
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}: {value}"
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: value
+            label: Value
+            type: string
+      - name: stats
+        label: Highlight numbers
+        type: object
+        description: The row of numbers below the top section. Four items look best.
+        list:
+          max: 4
+          collapsible:
+            collapsed: true
+            summary: "{number} {label}"
+        fields:
+          - name: number
+            label: Number
+            type: string
+          - name: label
+            label: Label
+            type: string
+      - name: contact_heading
+        label: Contact section heading
+        type: string
+      - name: contact_text
+        label: Contact section text
+        type: text
+      - name: seo_description
+        label: Search engine description
+        type: text
+        description: One or two sentences shown by Google and in link previews.
+
+  # ------------------------------------------------------- Research interests
+  - name: interests
+    label: Research interests
+    type: file
+    path: _data/interests.yml
+    fields:
+      - name: intro
+        label: Intro text
+        type: text
+      - name: items
+        label: Interests
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Interest
+            type: string
+            required: true
+          - name: icon
+            label: Icon
+            type: select
+            options:
+              values:
+                - { name: layers, label: Layers (materials) }
+                - { name: structure, label: Building (structures) }
+                - { name: thermometer, label: Thermometer (thermal) }
+                - { name: atom, label: Atom (nano / physics) }
+                - { name: crack, label: Crack (fatigue / fracture) }
+                - { name: robot, label: Underwater robot }
+                - { name: wave, label: Waves (fluids / ocean) }
+                - { name: ship, label: Ship }
+                - { name: gear, label: Gear (mechanical) }
+                - { name: chart, label: Chart (data / analysis) }
+                - { name: flask, label: Flask (lab / experiments) }
+                - { name: book, label: Book (general) }
+
+  # --------------------------------------------------------------- Experience
+  - name: experience
+    label: Experience
+    type: file
+    path: _data/experience.yml
+    fields:
+      - name: roles
+        label: Jobs (newest first)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} — {organization}"
+        fields:
+          - name: title
+            label: Job title
+            type: string
+            required: true
+          - name: organization
+            label: Organization & location
+            type: string
+          - name: dates
+            label: Dates
+            type: string
+            description: e.g. "Apr 2025 – Present"
+          - name: current
+            label: Current job
+            type: boolean
+            description: Shows a green "Current" badge.
+          - name: bullets_heading
+            label: Heading above the bullet points (optional)
+            type: string
+          - name: bullets
+            label: Bullet points
+            type: string
+            list: true
+            description: "Use **double asterisks** for bold text."
+          - name: tags_heading
+            label: Heading above the tags (optional)
+            type: string
+            description: e.g. "Courses conducted"
+          - name: tags
+            label: Tags (optional)
+            type: string
+            list: true
+            description: Short items shown as pills, e.g. courses taught.
+
+  # ---------------------------------------------------------------- Education
+  - name: education
+    label: Education
+    type: file
+    path: _data/education.yml
+    fields:
+      - name: degrees
+        label: Degrees (newest first)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{degree}"
+        fields:
+          - name: degree
+            label: Degree
+            type: string
+            required: true
+          - name: institution
+            label: Institution
+            type: string
+          - name: dates
+            label: Dates
+            type: string
+          - name: details
+            label: Extra line (optional)
+            type: string
+            description: e.g. CGPA or honours. Leave empty to hide.
+          - name: courses
+            label: Relevant coursework
+            type: string
+            list: true
+
+  # ----------------------------------------------------------------- Research
+  - name: research
+    label: Publications & projects
+    type: file
+    path: _data/research.yml
+    fields:
+      - name: publications
+        label: Publications
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: year
+            label: Year
+            type: string
+          - name: citation
+            label: Citation
+            type: text
+            description: "Use **double asterisks** for bold (your name) and *single asterisks* for italics."
+          - name: link
+            label: Link (DOI or URL)
+            type: string
+          - name: link_text
+            label: Link text
+            type: string
+      - name: projects
+        label: Thesis & projects
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: type
+            label: Type
+            type: string
+            description: e.g. "Undergraduate Thesis" or "Design Project"
+          - name: year
+            label: Year
+            type: string
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: description
+            label: Description
+            type: text
+          - name: tools
+            label: Tools used
+            type: string
+            list: true
+          - name: supervisor
+            label: Supervisor
+            type: string
+      - name: conferences
+        label: Conferences attended
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Conference
+            type: string
+          - name: details
+            label: Venue & year
+            type: string
+            description: e.g. "BUET · 2022"
+
+  # ------------------------------------------------------------------- Skills
+  - name: skills
+    label: Skills
+    type: file
+    path: _data/skills.yml
+    fields:
+      - name: groups
+        label: Skill groups
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Group name
+            type: string
+          - name: items
+            label: Skills
+            type: string
+            list: true
+
+  # --------------------------------------------------------------- Leadership
+  - name: leadership
+    label: Leadership & activities
+    type: file
+    path: _data/leadership.yml
+    fields:
+      - name: positions
+        label: Positions held
+        type: string
+        list: true
+        description: "Use **double asterisks** for bold text."
+      - name: activities
+        label: Activities
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{dates}"
+        fields:
+          - name: text
+            label: Activity
+            type: text
+            description: "Use **double asterisks** for bold text."
+          - name: dates
+            label: Dates
+            type: string
+
+  # --------------------------------------------------------------- References
+  - name: references
+    label: References
+    type: file
+    path: _data/references.yml
+    fields:
+      - name: people
+        label: References
+        type: object
+        description: Remove all entries to hide the References section.
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Name
+            type: string
+          - name: relation
+            label: Relation
+            type: string
+            description: e.g. "Thesis Supervisor"
+          - name: details
+            label: Position & institution
+            type: text
+          - name: email
+            label: Email
+            type: string
