@@ -10,3 +10,6 @@ vendor/
 # Original source files (kept locally; the site uses the optimized copies in assets/)
 CV.docx
 profile_pic.png
+
+# Private notes for continuing work
+HANDOFF.md
