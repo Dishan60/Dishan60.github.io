@@ -353,6 +353,12 @@
             {{ p.phone_display | default: p.phone }}
           </a>
           {% endif %}
+          {% for l in p.links %}{% if l.url and l.url != "" %}
+          <a class="contact-item" href="{{ l.url }}" target="_blank" rel="noopener">
+            {% assign link_icon = l.icon | default: "link" %}{% include icons/{{ link_icon }}.svg %}
+            {{ l.label | default: l.url }}
+          </a>
+          {% endif %}{% endfor %}
           {% if p.cv and p.cv != "" %}
           <a class="contact-item" href="{{ p.cv | relative_url }}" download target="_blank" rel="noopener">
             {% include icons/download.svg %}

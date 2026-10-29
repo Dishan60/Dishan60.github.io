@@ -70,6 +70,36 @@ content:
         label: Phone (as displayed)
         type: string
         description: How the number looks on the page, e.g. +880 1815-554912.
+      - name: links
+        label: Profile links
+        type: object
+        description: LinkedIn, Google Scholar and other profiles, shown in the Contact section. Leave empty to hide.
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - name: label
+            label: Text shown
+            type: string
+            required: true
+            description: e.g. "LinkedIn"
+          - name: url
+            label: Link (full address)
+            type: string
+            required: true
+            description: e.g. https://www.linkedin.com/in/your-name
+          - name: icon
+            label: Icon
+            type: select
+            options:
+              values:
+                - { name: linkedin, label: LinkedIn }
+                - { name: scholar, label: Google Scholar }
+                - { name: researchgate, label: ResearchGate }
+                - { name: orcid, label: ORCID }
+                - { name: github, label: GitHub }
+                - { name: link, label: Other website }
       - name: facts
         label: At a glance
         type: object
