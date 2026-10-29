@@ -53,7 +53,7 @@
       }
     });
   }, { rootMargin: '0px 0px -8% 0px' });
-  document.querySelectorAll('.section-head, .card, .role, .interest').forEach(function (el) {
+  document.querySelectorAll('.section-head, .card, .role, .interest, .press-photo').forEach(function (el) {
     el.classList.add('reveal');
     revealObserver.observe(el);
   });

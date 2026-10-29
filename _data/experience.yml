@@ -13,6 +13,7 @@ roles:
       - "Build and maintain client relationships, support negotiations and contribute to business development and market expansion."
   - title: Civil Instructor
     organization: "Bangladesh Naval Academy (BNA), Bangladesh"
+    logo: /assets/img/logo-bna.png
     dates: "Jun 2023 – Mar 2025"
     current: false
     tags_heading: Courses conducted
@@ -27,6 +28,7 @@ roles:
       - "Conducted guided visits on engineering equipment in the Engineering Model Room."
   - title: Undergraduate Intern
     organization: "Khulna Shipyard, Khulna, Bangladesh"
+    logo: /assets/img/logo-khulna-shipyard.png
     dates: "Mar 2021 – Apr 2021"
     current: false
     tags_heading: ""

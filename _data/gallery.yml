@@ -1,0 +1,26 @@
+heading: "Ships, shipyards & energy"
+photos:
+  - image: /assets/img/photo-lines-plan.png
+    caption: "Lines plan of the sailing ship Balclutha: body, sheer and half-breadth views, the starting point of every hull design."
+    credit: "Robbyn L. Jackson / HAER, Library of Congress, public domain"
+    credit_url: "https://commons.wikimedia.org/wiki/File:Lines-_Body_Plan,_Sheer_Plan,_Half-Breadth_Plan_-_Ship_BALCLUTHA,_2905_Hyde_Street_Pier,_San_Francisco,_San_Francisco_County,_CA_HAER_CAL,38-SANFRA,200-_(sheet_3_of_69).png"
+  - image: /assets/img/photo-towing-tank.jpg
+    caption: "A hull model under test in a towing tank, where resistance and seakeeping are measured before a ship is built."
+    credit: "Photo: Xtrememachineuk / Wikimedia Commons, CC BY 2.5"
+    credit_url: "https://commons.wikimedia.org/wiki/File:NewcastleTowingTank.jpg"
+  - image: /assets/img/photo-khulna-shipyard.jpg
+    caption: "Khulna Shipyard on the Rupsha River, where hull drafting, stability and structural design meet steel."
+    credit: "Photo: কুপি বাতি / Wikimedia Commons, CC BY-SA 4.0"
+    credit_url: "https://commons.wikimedia.org/wiki/File:Khulna_Ship_Yard_LTD.jpg"
+  - image: /assets/img/photo-bns-jamuna.jpg
+    caption: "Bangladesh Navy patrol craft BNS Jamuna."
+    credit: "Photo: Shadman Samee / Wikimedia Commons, CC BY-SA 2.0"
+    credit_url: "https://commons.wikimedia.org/wiki/File:Bangladesh_Navy_Coastal_Patrol_Craft_BNS_Jamuna_(24390175463).jpg"
+  - image: /assets/img/photo-lpg-sphere.jpg
+    caption: "Spherical LPG storage tanks in Bangladesh: pressure vessels at the heart of the gas supply chain."
+    credit: "Photo: Manjarul.hasan / Wikimedia Commons, CC BY-SA 4.0"
+    credit_url: "https://commons.wikimedia.org/wiki/File:Omera_Storage_Sphere.jpg"
+  - image: /assets/img/photo-lpg-tanker.jpg
+    caption: "An LPG carrier under way: where naval architecture and the energy trade meet."
+    credit: "Photo: Ilkka Simomaa / Wikimedia Commons, CC BY 4.0"
+    credit_url: "https://commons.wikimedia.org/wiki/File:LPG_tanker_Run_Far_in_waters_off_Peng_Chau,_Hong_Kong_2019-10-22.jpg"

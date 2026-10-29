@@ -1,6 +1,7 @@
 degrees:
   - degree: "B.Sc. in Naval Architecture & Marine Engineering"
     institution: "Military Institute of Science and Technology (MIST), Bangladesh"
+    logo: /assets/img/logo-mist.png
     dates: "2018 – 2021"
     details: ""
     courses:

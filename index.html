@@ -9,6 +9,7 @@
 {%- assign skills = site.data.skills.groups -%}
 {%- assign lead = site.data.leadership -%}
 {%- assign refs = site.data.references.people -%}
+{%- assign gallery = site.data.gallery -%}
 {%- capture page_title -%}{{ p.name }}{% if p.role_title and p.role_title != "" %} — {{ p.role_title }}{% endif %}{%- endcapture -%}
 <!doctype html>
 <html lang="en">
@@ -54,6 +55,15 @@
   </header>
 
   <main id="main">
+    {% if interests.items.size > 0 %}
+    <!-- Ticker: research interests scroll past like a news ticker (list is doubled for a seamless loop) -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        {% for n in (1..2) %}{% for i in interests.items %}<span>{{ i.name }}</span>{% endfor %}{% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
     <!-- Hero -->
     <section class="hero" id="top">
       <div class="container hero-grid">
@@ -123,6 +133,31 @@
     </section>
     {% endif %}
 
+    {% if gallery.photos.size > 0 %}
+    <!-- In pictures: black & white photo strip -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">In pictures</p>
+          <h2>{{ gallery.heading | default: "The world of ships" }}</h2>
+        </div>
+        <div class="gallery-grid">
+          {% for g in gallery.photos %}
+          <figure class="press-photo">
+            <div class="press-photo-frame">
+              <img src="{{ g.image | relative_url }}" alt="{{ g.caption | escape }}" loading="lazy">
+            </div>
+            <figcaption>
+              {{ g.caption }}
+              {% if g.credit and g.credit != "" %}<span class="credit">{% if g.credit_url and g.credit_url != "" %}<a href="{{ g.credit_url }}" target="_blank" rel="noopener">{{ g.credit }}</a>{% else %}{{ g.credit }}{% endif %}</span>{% endif %}
+            </figcaption>
+          </figure>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
     {% if roles.size > 0 %}
     <!-- Experience -->
     <section class="section section-alt" id="experience">
@@ -140,8 +175,13 @@
               {% if r.current %}<span class="badge badge-current">Current</span>{% endif %}
             </div>
             <div class="role-body">
-              <h3>{{ r.title }}</h3>
-              <p class="role-org">{{ r.organization }}</p>
+              <div class="org-head">
+                {% if r.logo and r.logo != "" %}<img class="org-logo" src="{{ r.logo | relative_url }}" alt="{{ r.organization | escape }} logo" width="52" height="52" loading="lazy">{% endif %}
+                <div>
+                  <h3>{{ r.title }}</h3>
+                  <p class="role-org">{{ r.organization }}</p>
+                </div>
+              </div>
               {% if r.tags.size > 0 %}
               {% if r.tags_heading and r.tags_heading != "" %}<p class="role-sub">{{ r.tags_heading }}</p>{% endif %}
               <ul class="tags">
@@ -176,10 +216,13 @@
           {% for d in degrees %}
           <article class="card edu-card">
             <div class="edu-top">
-              <div>
-                <h3>{{ d.degree }}</h3>
-                <p class="role-org">{{ d.institution }}</p>
-                {% if d.details and d.details != "" %}<p class="edu-details">{{ d.details }}</p>{% endif %}
+              <div class="org-head">
+                {% if d.logo and d.logo != "" %}<img class="org-logo" src="{{ d.logo | relative_url }}" alt="{{ d.institution | escape }} logo" width="52" height="52" loading="lazy">{% endif %}
+                <div>
+                  <h3>{{ d.degree }}</h3>
+                  <p class="role-org">{{ d.institution }}</p>
+                  {% if d.details and d.details != "" %}<p class="edu-details">{{ d.details }}</p>{% endif %}
+                </div>
               </div>
               <span class="role-date">{{ d.dates }}</span>
             </div>

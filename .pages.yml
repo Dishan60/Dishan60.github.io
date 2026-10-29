@@ -181,6 +181,42 @@ content:
                 - { name: flask, label: Flask (lab / experiments) }
                 - { name: book, label: Book (general) }
 
+  # ------------------------------------------------------------------ Gallery
+  - name: gallery
+    label: In pictures
+    type: file
+    path: _data/gallery.yml
+    fields:
+      - name: heading
+        label: Heading
+        type: string
+      - name: photos
+        label: Photos
+        type: object
+        description: Shown in black & white. Three or six photos look best. Remove all to hide the section.
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{caption}"
+        fields:
+          - name: image
+            label: Photo
+            type: image
+            required: true
+            description: Landscape photo, about 1200 px wide, under 400 KB.
+            options:
+              media: images
+          - name: caption
+            label: Caption
+            type: string
+          - name: credit
+            label: Photo credit
+            type: string
+            description: Required for most free photos, e.g. "Photo: Jane Doe / Wikimedia Commons, CC BY-SA 4.0".
+          - name: credit_url
+            label: Credit link (optional)
+            type: string
+
   # --------------------------------------------------------------- Experience
   - name: experience
     label: Experience
@@ -202,6 +238,12 @@ content:
           - name: organization
             label: Organization & location
             type: string
+          - name: logo
+            label: Organization logo (optional)
+            type: image
+            description: Square PNG with a transparent or white background works best. Shown in black & white.
+            options:
+              media: images
           - name: dates
             label: Dates
             type: string
@@ -249,6 +291,12 @@ content:
           - name: institution
             label: Institution
             type: string
+          - name: logo
+            label: Institution logo (optional)
+            type: image
+            description: Square PNG with a transparent or white background works best. Shown in black & white.
+            options:
+              media: images
           - name: dates
             label: Dates
             type: string
