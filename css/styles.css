@@ -288,7 +288,8 @@ svg { width: 1.15em; height: 1.15em; flex-shrink: 0; }
 /* Organisation logos: black & white, colour on hover */
 .org-head { display: flex; align-items: center; gap: 16px; }
 .org-logo {
-  width: 52px; height: 52px; flex-shrink: 0; object-fit: contain; padding: 4px;
+  /* Fixed height, natural width, so wide wordmarks stay readable next to square crests */
+  height: 52px; width: auto; max-width: 132px; flex-shrink: 0; object-fit: contain; padding: 4px;
   border: 1px solid var(--border); background: var(--surface);
   filter: grayscale(1) contrast(1.1); transition: filter .3s;
 }
@@ -352,7 +353,7 @@ svg { width: 1.15em; height: 1.15em; flex-shrink: 0; }
   .role-body { border-top: 0; padding-top: 0; }
   .role-body .bullets { columns: 1; }
   .project-grid, .ref-grid, .interest-grid, .gallery-grid { grid-template-columns: 1fr; }
-  .org-logo { width: 44px; height: 44px; }
+  .org-logo { height: 44px; max-width: 108px; }
   .edu-top, .conf-list li, .activity-list li { flex-direction: column; gap: 4px; }
   .stat { padding: 16px; }
   .stat-num { font-size: 1.6rem; }

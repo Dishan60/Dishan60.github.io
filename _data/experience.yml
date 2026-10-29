@@ -1,6 +1,7 @@
 roles:
   - title: Executive
     organization: DECO Limited
+    logo: /assets/img/logo-deco.png
     dates: "Apr 2025 – Present"
     current: true
     tags_heading: ""

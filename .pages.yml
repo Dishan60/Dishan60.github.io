@@ -241,7 +241,7 @@ content:
           - name: logo
             label: Organization logo (optional)
             type: image
-            description: Square PNG with a transparent or white background works best. Shown in black & white.
+            description: PNG with a transparent or white background, square or wide (about 360 px wide is plenty). Shown in black & white.
             options:
               media: images
           - name: dates
