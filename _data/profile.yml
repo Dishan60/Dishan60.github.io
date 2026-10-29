@@ -12,7 +12,10 @@ cv: /assets/files/Dishan_Majumder_CV.pdf
 email: dishan60@gmail.com
 phone: "+8801521555598"
 phone_display: +880 1521-555598
-links: []
+links:
+  - label: LinkedIn
+    url: www.linkedin.com/in/ dishan-majumder
+    icon: linkedin
 facts:
   - label: Current role
     value: Executive, DECO Limited
